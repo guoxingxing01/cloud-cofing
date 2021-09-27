@@ -44,7 +44,7 @@ info:
 
 --- 
 server:
-  port: 8002
+  port: 8003
 mybatis:
   type-aliases-package: com.xuexi.pojo
   #mapper-locations: classpath:mapper/DeptMapper.xml
