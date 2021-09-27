@@ -6,7 +6,7 @@ server:
   port: 8001
 mybatis:
   type-aliases-package: com.xuexi.pojo
-  mapper-locations: classpath:mapper/DeptMapper.xml
+  #mapper-locations: classpath:mapper/DeptMapper.xml
   configuration:
     cache-enabled: true  #二级缓存
 spring:
@@ -47,7 +47,7 @@ server:
   port: 8002
 mybatis:
   type-aliases-package: com.xuexi.pojo
-  mapper-locations: classpath:mapper/DeptMapper.xml
+  #mapper-locations: classpath:mapper/DeptMapper.xml
   configuration:
     cache-enabled: true  #二级缓存
 spring:
