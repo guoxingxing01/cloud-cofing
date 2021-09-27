@@ -10,11 +10,11 @@ mybatis:
   config-location: classpath:mybatis/SqlMapConfig.xml        # mybatis配置文件所在路径
   type-aliases-package: com.itheima.springcloud.pojo    # 所有Entity别名类所在包
   mapper-locations:
-  - classpath:mybatis/mapper/*.xml                       # mapper映射文件
+    classpath:mybatis/mapper/*.xml                       # mapper映射文件
 ​
-spring:
+spring: 
    profiles: dev
-   application:
+   application: 
     name: hf-itheima-cloud-provider          # 注意不能修改  千万不要写下划线
    datasource:
     type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
