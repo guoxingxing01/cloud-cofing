@@ -1,34 +1,41 @@
 spring: 
     profiles: 
-        active:
-           - dev
----           
-spring: 
-    profiles: dev
-    application:
-        name: hf-itheima-cloud-eureka-configclient-dev
-server: 
-  port: 7001
-eureka: 
-  instance: 
-    hostname: eureka01    #hostname为hosts文件中映射的地址
-  client:
-    register-with-eureka: false     #false表示不向注册中心注册自己
-    fetch-registry: false           #false表示自己就是注册中心，职责是维护实例，不参加检索
-    service-url:
-      defaultZone: http://eureka01:7001/eureka/   #设置eureka server的交互地址
+        active: dev
 ---
 spring:
-    profiles: test
-    application:
-        name: hf-itheima-cloud-eureka-configclient-test
+  profiles: dev
+  application:
+    name: cloud-config-eureka-dev
 server:
   port: 7001
 eureka:
   instance:
-    hostname: eureka7002    #hostname为hosts文件中映射的地址
+    hostname: eureka7001.com
   client:
-    register-with-eureka: false     #false表示不向注册中心注册自己
-    fetch-registry: false           #false表示自己就是注册中心，职责是维护实例，不参加检索
+    register-with-eureka: false  #false表示不向注册中心注册自己
+    fetch-registry: false  #false表示自己就是注册中心，职责是维护实例，不参加检索
     service-url:
-      defaultZone: http://eureka7002:7002/eureka/     #设置eureka server的交互地址
+      defaultZone: http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/ #eureka server的交互地址，即对外暴露的地址
+  server:
+    enable-self-preservation: true #开启自我保护模式
+    eviction-interval-timer-in-ms: 60000  #服务注册表清理间隔（单位毫秒，默认是60*1000） 
+    
+---
+spring:
+  profiles: test
+  application:
+    name: cloud-config-eureka-test
+server:
+  port: 7001
+eureka:
+  instance:
+    hostname: eureka7002.com
+  client:
+    register-with-eureka: false  #false表示不向注册中心注册自己
+    fetch-registry: false  #false表示自己就是注册中心，职责是维护实例，不参加检索
+    service-url:
+      defaultZone: http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/ #eureka server的交互地址，即对外暴露的地址
+  server:
+    enable-self-preservation: true #开启自我保护模式
+    eviction-interval-timer-in-ms: 60000  #服务注册表清理间隔（单位毫秒，默认是60*1000）     
+    
